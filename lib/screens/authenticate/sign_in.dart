@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_print
+import 'package:brew_crew/screens/authenticate/forgot.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/widgets.dart';
@@ -86,6 +87,8 @@ class _SignInState extends State<SignIn> {
           const SizedBox(height: 20.0),
           signInButton(),
           const SizedBox(height: 12.0),
+          // forgotPasswordButton(),
+          // const SizedBox(height: 12.0),
           helperText(error),
         ],
       ),
@@ -122,6 +125,21 @@ class _SignInState extends State<SignIn> {
       child: const Text('Sign In'),
     );
   }
+
+  // Widget forgotPasswordButton() {
+  //   return TextButton(
+  //     onPressed: () {
+  //       Navigator.push(
+  //           context,
+  //           PageRouteBuilder(
+  //             pageBuilder: (context, animation1, animation2) => const Forgot(),
+  //             transitionDuration: Duration.zero,
+  //             reverseTransitionDuration: Duration.zero,
+  //           ));
+  //     },
+  //     child: const Text("forgot password"),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

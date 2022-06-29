@@ -1,5 +1,6 @@
 import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/screens/authenticate/authenticate.dart';
+import 'package:brew_crew/screens/authenticate/forgot.dart';
 import 'package:brew_crew/screens/wrapper.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           // '/home': (context) => const Wrapper(),
           '/sign_in': (context) => Authenticate(showSignIn: true),
           '/register': (context) => Authenticate(showSignIn: false),
+          '/password_reset': (context) => const Forgot(),
         },
       ),
     );
