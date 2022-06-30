@@ -1,3 +1,4 @@
+import 'package:brew_crew/screens/home/audio_player.dart';
 import 'package:brew_crew/screens/home/brew_list.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,7 +37,7 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        body: BrewList(),
+        body: const audioScreen(),
       ),
     );
   }
