@@ -138,25 +138,6 @@ class _AudioScreenState extends State<AudioScreen> with WidgetsBindingObserver {
                 ],
               ),
               const SizedBox(height: 8),
-              // Slider(
-              //   min: 0,
-              //   max: duration.inSeconds.toDouble(),
-              //   value: position.inSeconds.toDouble(),
-              //   onChanged: (value) async {
-              //     final position = Duration(seconds: value.toInt());
-              //     await player.seek(position);
-              //   },
-              // ),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 10),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       Text(formatTime(position)),
-              //       Text(formatTime(duration - position)),
-              //     ],
-              //   ),
-              // ),
               ControlButtons(player),
               StreamBuilder<PositionData>(
                 stream: _positionDataStream,
@@ -269,8 +250,8 @@ class ControlButtons extends StatelessWidget {
                 context: context,
                 title: "Adjust speed",
                 divisions: 10,
-                min: 0.2,
-                max: 2.0,
+                min: 0.5,
+                max: 1.5,
                 value: player.speed,
                 stream: player.speedStream,
                 onChanged: player.setSpeed,
