@@ -102,11 +102,21 @@ class SeekBarState extends State<SeekBar> {
                       ?.group(1) ??
                   '$_remaining',
               style: Theme.of(context).textTheme.caption),
+        ),Positioned(
+          left: 16.0,
+          bottom: 0.0,
+          child: Text(
+              RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
+                      .firstMatch("$_position")
+                      ?.group(1) ??
+                  '$_position',
+              style: Theme.of(context).textTheme.caption),
         ),
       ],
     );
   }
-
+  
+  Duration get _position => widget.position;
   Duration get _remaining => widget.duration - widget.position;
 }
 
