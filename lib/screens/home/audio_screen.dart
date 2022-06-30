@@ -201,10 +201,6 @@ class ControlButtons extends StatelessWidget {
             player.seek(Duration(seconds: player.position.inSeconds - 10)),
             if (player.position.inSeconds <= 0)
               {player.seek(const Duration(seconds: 0))},
-            // if (player.position.inSeconds == 0 && player.position.inSeconds < 0)
-            //   {player.seek(const Duration(seconds: 0))}
-            // else
-            //   {player.seek(Duration(seconds: player.position.inSeconds - 10))}
           },
         ),
 
@@ -248,13 +244,20 @@ class ControlButtons extends StatelessWidget {
           },
         ),
         IconButton(
-          icon: const Icon(
-            Icons.forward_10,
-            size: 30,
-          ),
-          onPressed: () =>
-              player.seek(Duration(seconds: player.position.inSeconds + 10)),
-        ),
+            icon: const Icon(
+              Icons.forward_10,
+              size: 30,
+            ),
+            onPressed: () => {
+                  player
+                      .seek(Duration(seconds: player.position.inSeconds + 10)),
+                  if (player.position.inSeconds >= player.duration!.inSeconds)
+                    {
+                      player.seek(Duration(seconds: player.duration!.inSeconds))
+                    },
+
+                  // player.seek(Duration(seconds: player.position.inSeconds + 10)),
+                }),
         // Opens speed slider dialog
         StreamBuilder<double>(
           stream: player.speedStream,
@@ -266,8 +269,8 @@ class ControlButtons extends StatelessWidget {
                 context: context,
                 title: "Adjust speed",
                 divisions: 10,
-                min: 0.5,
-                max: 1.5,
+                min: 0.2,
+                max: 2.0,
                 value: player.speed,
                 stream: player.speedStream,
                 onChanged: player.setSpeed,
